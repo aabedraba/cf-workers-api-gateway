@@ -1,4 +1,4 @@
-# Edge Gateway
+# Cloudflare Workers Edge API Gateway
 
 ![](./assets/gateway.png)
 
