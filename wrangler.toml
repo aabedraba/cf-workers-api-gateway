@@ -1,0 +1,16 @@
+## This Wrangler configuration file is an example configuration
+## While using Steels Portal, a custom configuration file is created that resembles this 
+## one, but with custom configuration values for each different gateway.
+## The values shown here are just an example for testing purposes.
+
+name = "my-edge-api-gateway" # usually the name of the gateway for each user
+main = "src/index.ts"
+compatibility_date = "2022-11-17"
+
+analytics_engine_datasets = [
+  { binding = "my-edge-api-gateway" },
+]
+
+[vars] # local testing stuff, the production values are set from the API server
+GATEWAY_NAME = "my-edge-api-gateway"
+ANALYTICS_ENABLED = "false"

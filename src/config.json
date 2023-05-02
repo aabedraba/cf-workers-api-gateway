@@ -1,0 +1,72 @@
+{
+  "routes": [
+    {
+      "path": "/hello",
+      "method": "POST",
+      "origin": {
+        "type": "url",
+        "options": {
+          "url": "https://jsonplaceholder.typicode.com/todos/1"
+        }
+      },
+      "policies": {
+        "request": ["company-scope-auth", "validate-my-body", "changeMethod"],
+        "response": []
+      }
+    },
+    {
+      "path": "/testbasicauth",
+      "method": "GET",
+      "origin": {
+        "type": "url",
+        "options": {
+          "url": "https://jsonplaceholder.typicode.com/todos/1"
+        }
+      },
+      "policies": {
+        "request": ["basic-auth"],
+        "response": []
+      }
+    }
+  ],
+  "policies": [
+    {
+      "name": "basic-auth",
+      "type": "basicAuth",
+      "options": {
+        "username": "oleole",
+        "password": "loscaracoles"
+      }
+    },
+    {
+      "name": "company-scope-auth",
+      "type": "auth0jwt",
+      "options": {
+        "issuer": "https://aabedraba.eu.auth0.com/",
+        "audience": "https://steels-jwt-api"
+      }
+    },
+    {
+      "name": "validate-my-body",
+      "type": "jsonBodyValidation",
+      "options": {
+        "schema": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            }
+          },
+          "required": ["name"]
+        }
+      }
+    },
+    {
+      "name": "changeMethod",
+      "type": "changeMethod",
+      "options": {
+        "method": "GET"
+      }
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "cf-worker-api-gateway",
+  "version": "0.4.8",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20230404.0",
+    "typescript": "^4.9.4",
+    "wrangler": "^2.18.0"
+  },
+  "scripts": {
+    "start": "wrangler dev",
+    "deploy": "wrangler publish",
+    "bundle": "wrangler publish --dry-run --outdir"
+  },
+  "dependencies": {
+    "@cfworker/json-schema": "^1.12.5",
+    "jose": "^4.11.1"
+  }
+}
